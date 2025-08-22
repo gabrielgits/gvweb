@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 import type { ReactNode } from 'react';
 
 type Language = 'en' | 'pt';
@@ -100,7 +100,53 @@ const translations = {
     'timeline.masters.description': 'Currently pursuing Master of Science in Computer Science at Maharishi International University, USA, advancing expertise in cutting-edge technologies.',
     'timeline.cta.description': 'Ready to bring this experience to your next project?',
     'timeline.cta.resume': 'View Full Resume',
-    'timeline.cta.contact': 'Let\'s Talk'
+    'timeline.cta.contact': 'Let\'s Talk',
+    
+    // Resume Experience Section
+    'resume.experience.company1': 'CAMINHO DE FERRO DE BENGUEL',
+    'resume.experience.position1': 'IT Director',
+    'resume.experience.period1': '01/2019 - 04/2023',
+    'resume.experience.location1': 'Angola',
+    'resume.experience.resp1.1': 'Developed Performance Evaluation System using Laravel for efficient and transparent employee competency management',
+    'resume.experience.resp1.2': 'Created Railway Ticketing System available on Google Play Store using Flutter cross-platform technology, reducing costs and boosting company sales by 60%',
+    'resume.experience.resp1.3': 'Developed official mobile app for clients using Kotlin and Firebase, achieving 25% improvement in business performance',
+    'resume.experience.resp1.4': 'Published \'bform\' packages available on pub.dev to facilitate UI creation, reducing app development time by 30%',
+    'resume.experience.resp1.5': 'Led software development best practices training across IT departments, increasing team productivity by 20%',
+    'resume.experience.resp1.6': 'Led adoption of agile methodologies establishing sprint cycles, resulting in 15% improvement in project delivery timelines',
+    'resume.experience.position2': 'Software Engineer',
+    'resume.experience.period2': '02/2018 - 01/2019',
+    'resume.experience.resp2.1': 'Built web portal using Laravel framework for backend and VueJS for frontend, resulting in 20% increase in business success',
+    'resume.experience.resp2.2': 'Implemented inventory management system using C++ with MySQL for efficient stock control and management',
+    'resume.experience.resp2.3': 'Created secure RESTful API for invoice system using Express Node.js and Axios for Android App data requests',
+    'resume.experience.resp2.4': 'Developed unit and integration tests using JUnit and Mockito, significantly reducing reported issues',
+    
+    // Resume Education Section
+    'resume.education.degree1': 'Master\'s in Computer Science',
+    'resume.education.school1': 'Maharishi International University',
+    'resume.education.location1': 'Iowa, USA',
+    'resume.education.period1': 'In Progress (Expected 12/2025)',
+    'resume.education.courses1': 'Web Application Programming, Web Application Development, Mobile Application Development, Algorithms',
+    'resume.education.degree2': 'Bachelor\'s in Computer Science',
+    'resume.education.school2': 'Universidade Katyavala Bwila',
+    'resume.education.location2': 'Benguela, Angola',
+    'resume.education.period2': '2016',
+    
+    // Resume Projects Section
+    'resume.project1.name': 'NGame',
+    'resume.project1.description': 'Action-packed aerial combat game that immerses players in the Naruto universe',
+    'resume.project1.tech': 'HTML, CSS, JavaScript',
+    'resume.project1.year': '2023',
+    'resume.project2.name': 'StudentsM',
+    'resume.project2.description': 'Simple project built with Node.js and Express for efficient student management with CRUD operations',
+    'resume.project2.tech': 'Node.js, Express, MySQL',
+    'resume.project2.year': '2023',
+    'resume.project3.name': 'RestaurantLite',
+    'resume.project3.description': 'Cross-platform mobile app designed to help restaurant owners manage their food menu, notes/newsletter and personal profile',
+    'resume.project3.tech': 'Node.js, Express, React-Native, MongoDB',
+    'resume.project3.year': '2023',
+    
+    // Resume Certifications Section
+    'resume.cert1': 'Intensive Cybersecurity Course (06/2022)'
   },
   pt: {
     // Navigation
@@ -189,7 +235,53 @@ const translations = {
     'timeline.masters.description': 'Atualmente a cursar Mestrado em Ciências da Computação na Universidade Internacional Maharishi, EUA, avançando a expertise em tecnologias de ponta.',
     'timeline.cta.description': 'Pronto para trazer esta experiência ao seu próximo projeto?',
     'timeline.cta.resume': 'Ver Currículo Completo',
-    'timeline.cta.contact': 'Vamos Conversar'
+    'timeline.cta.contact': 'Vamos Conversar',
+    
+    // Resume Experience Section
+    'resume.experience.company1': 'CAMINHO DE FERRO DE BENGUEL',
+    'resume.experience.position1': 'Director de TI',
+    'resume.experience.period1': '01/2019 - 04/2023',
+    'resume.experience.location1': 'Angola',
+    'resume.experience.resp1.1': 'Desenvolvi Sistema de Avaliação de Desempenho usando Laravel para gestão eficiente e transparente de competências dos funcionários',
+    'resume.experience.resp1.2': 'Criei Sistema de Bilhetagem Ferroviária disponível na Google Play Store usando tecnologia multiplataforma Flutter, reduzindo custos e aumentando vendas da empresa em 60%',
+    'resume.experience.resp1.3': 'Desenvolvi aplicação móvel oficial para clientes usando Kotlin e Firebase, alcançando 25% de melhoria no desempenho empresarial',
+    'resume.experience.resp1.4': 'Publiquei pacotes \'bform\' disponíveis em pub.dev para facilitar criação de UI, reduzindo tempo de desenvolvimento de apps em 30%',
+    'resume.experience.resp1.5': 'Liderei treinamento de melhores práticas de desenvolvimento de software em departamentos de TI, aumentando produtividade da equipa em 20%',
+    'resume.experience.resp1.6': 'Liderei adoção de metodologias ágeis estabelecendo ciclos de sprint, resultando em 15% de melhoria nos prazos de entrega de projetos',
+    'resume.experience.position2': 'Engenheiro de Software',
+    'resume.experience.period2': '02/2018 - 01/2019',
+    'resume.experience.resp2.1': 'Construí portal web usando framework Laravel para backend e VueJS para frontend, resultando em 20% de aumento no sucesso empresarial',
+    'resume.experience.resp2.2': 'Implementei sistema de gestão de inventário usando C++ com MySQL para controlo e gestão eficiente de stock',
+    'resume.experience.resp2.3': 'Criei API RESTful segura para sistema de faturas usando Express Node.js e Axios para pedidos de dados da App Android',
+    'resume.experience.resp2.4': 'Desenvolvi testes unitários e de integração usando JUnit e Mockito, reduzindo significativamente problemas reportados',
+    
+    // Resume Education Section
+    'resume.education.degree1': 'Mestrado em Ciências da Computação',
+    'resume.education.school1': 'Universidade Internacional Maharishi',
+    'resume.education.location1': 'Iowa, EUA',
+    'resume.education.period1': 'Em Progresso (Esperado 12/2025)',
+    'resume.education.courses1': 'Programação de Aplicações Web, Desenvolvimento de Aplicações Web, Desenvolvimento de Aplicações Móveis, Algoritmos',
+    'resume.education.degree2': 'Licenciatura em Ciências da Computação',
+    'resume.education.school2': 'Universidade Katyavala Bwila',
+    'resume.education.location2': 'Benguela, Angola',
+    'resume.education.period2': '2016',
+    
+    // Resume Projects Section
+    'resume.project1.name': 'NGame',
+    'resume.project1.description': 'Jogo de combate aéreo cheio de ação que imerge jogadores no universo Naruto',
+    'resume.project1.tech': 'HTML, CSS, JavaScript',
+    'resume.project1.year': '2023',
+    'resume.project2.name': 'StudentsM',
+    'resume.project2.description': 'Projeto simples construído com Node.js e Express para gestão eficiente de estudantes com operações CRUD',
+    'resume.project2.tech': 'Node.js, Express, MySQL',
+    'resume.project2.year': '2023',
+    'resume.project3.name': 'RestaurantLite',
+    'resume.project3.description': 'App móvel multiplataforma desenhada para ajudar proprietários de restaurantes a gerir o seu menu de comida, notas/newsletter e perfil pessoal',
+    'resume.project3.tech': 'Node.js, Express, React-Native, MongoDB',
+    'resume.project3.year': '2023',
+    
+    // Resume Certifications Section
+    'resume.cert1': 'Curso Intensivo de Cibersegurança (06/2022)'
   }
 };
 
@@ -205,5 +297,14 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
       {children}
     </LanguageContext.Provider>
   );
+};
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const useLanguage = (): LanguageContextType => {
+  const context = useContext(LanguageContext);
+  if (context === undefined) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
 };
 

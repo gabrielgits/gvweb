@@ -1,9 +1,13 @@
+import { useLanguage } from '../contexts/LanguageContext';
+
 const Portfolio = () => {
+  const { t } = useLanguage();
+  
   const projects = [
     {
       id: 1,
-      title: "Railway Ticketing System",
-      description: "Cross-platform mobile application available on Google Play Store for railway ticket sales control, reducing costs and boosting company sales by 60%.",
+      titleKey: "project.railway.title",
+      descriptionKey: "project.railway.description",
       tech: ["Flutter", "Dart", "Firebase", "Mobile Development"],
       image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop&crop=center",
       demoLink: "https://play.google.com/store",
@@ -11,8 +15,8 @@ const Portfolio = () => {
     },
     {
       id: 2,
-      title: "Performance Evaluation System",
-      description: "Web-based performance evaluation system using Laravel that allows the company to manage employee competencies efficiently and transparently.",
+      titleKey: "project.performance.title",
+      descriptionKey: "project.performance.description",
       tech: ["Laravel", "PHP", "MySQL", "Web Development"],
       image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop&crop=center",
       demoLink: "#",
@@ -20,8 +24,8 @@ const Portfolio = () => {
     },
     {
       id: 3,
-      title: "Official Customer Mobile App",
-      description: "Native mobile application for customers using Kotlin and Firebase, achieving 25% improvement in business performance through enhanced customer engagement.",
+      titleKey: "project.mobile.title",
+      descriptionKey: "project.mobile.description",
       tech: ["Kotlin", "Firebase", "Android", "Mobile Development"],
       image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop&crop=center",
       demoLink: "#",
@@ -29,8 +33,8 @@ const Portfolio = () => {
     },
     {
       id: 4,
-      title: "BForm Flutter Package",
-      description: "Published package available on pub.dev to facilitate UI creation, reducing app development time by 30% for Flutter developers worldwide.",
+      titleKey: "project.bform.title",
+      descriptionKey: "project.bform.description",
       tech: ["Flutter", "Dart", "Package Development", "Open Source"],
       image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=400&fit=crop&crop=center",
       demoLink: "https://pub.dev/packages/bform",
@@ -38,8 +42,8 @@ const Portfolio = () => {
     },
     {
       id: 5,
-      title: "Web Portal with Laravel & VueJS",
-      description: "Corporate web portal using Laravel for backend and VueJS for frontend, facilitating customer access to company information and services, resulting in 20% business growth.",
+      titleKey: "project.portal.title",
+      descriptionKey: "project.portal.description",
       tech: ["Laravel", "VueJS", "PHP", "JavaScript", "MySQL"],
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&crop=center",
       demoLink: "#",
@@ -47,8 +51,8 @@ const Portfolio = () => {
     },
     {
       id: 6,
-      title: "Inventory Management System",
-      description: "Efficient inventory control and management system built with C++ and MySQL, enabling better tracking of stock, sales, and order history.",
+      titleKey: "project.inventory.title",
+      descriptionKey: "project.inventory.description",
       tech: ["C++", "MySQL", "Desktop Application", "Database Management"],
       image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=600&h=400&fit=crop&crop=center",
       demoLink: "#",
@@ -64,11 +68,10 @@ const Portfolio = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20 animate-fade-in">
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-8 font-heading bg-gradient-to-r from-white via-neon-blue to-electric-400 bg-clip-text text-transparent">Portfolio</h2>
+          <h2 className="text-5xl md:text-6xl font-bold text-white mb-8 font-heading bg-gradient-to-r from-white via-neon-blue to-electric-400 bg-clip-text text-transparent">{t('portfolio.title')}</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-neon-blue to-electric-600 mx-auto mb-8 rounded-full shadow-lg shadow-neon-blue/50"></div>
           <p className="text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-            Here are some of my recent projects showcasing my skills in full-stack development, 
-            UI/UX design, and problem-solving.
+            {t('portfolio.description')}
           </p>
         </div>
         
@@ -78,15 +81,15 @@ const Portfolio = () => {
               <div className="h-56 bg-slate-700 overflow-hidden relative">
                 <img 
                   src={project.image} 
-                  alt={project.title}
+                  alt={t(project.titleKey)}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
               </div>
               
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-white mb-4 font-heading group-hover:text-neon-blue transition-colors duration-300">{project.title}</h3>
-                <p className="text-slate-300 mb-6 text-sm leading-relaxed">{project.description}</p>
+                <h3 className="text-2xl font-bold text-white mb-4 font-heading group-hover:text-neon-blue transition-colors duration-300">{t(project.titleKey)}</h3>
+                <p className="text-slate-300 mb-6 text-sm leading-relaxed">{t(project.descriptionKey)}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((tech, index) => (
@@ -106,7 +109,7 @@ const Portfolio = () => {
                     rel="noopener noreferrer"
                     className="flex-1 bg-gradient-to-r from-neon-blue to-electric-600 text-white px-6 py-3 rounded-xl text-center text-sm font-semibold hover:from-electric-500 hover:to-neon-blue transition-all duration-300 shadow-lg shadow-neon-blue/25 hover:shadow-neon-blue/40 transform hover:scale-105"
                   >
-                    Live Demo
+{t('portfolio.demo')}
                   </a>
                   {project.githubLink ? (
                     <a 
@@ -115,14 +118,14 @@ const Portfolio = () => {
                       rel="noopener noreferrer"
                       className="flex-1 border-2 border-neon-blue text-neon-blue px-6 py-3 rounded-xl text-center text-sm font-semibold transition-all duration-300 backdrop-blur-sm transform hover:scale-105 hover:bg-neon-blue hover:text-white hover:border-electric-600"
                     >
-                      GitHub
+{t('portfolio.github')}
                     </a>
                   ) : (
                     <button 
                       disabled
                       className="flex-1 border-2 border-slate-600 text-slate-500 px-6 py-3 rounded-xl text-center text-sm font-semibold cursor-not-allowed backdrop-blur-sm"
                     >
-                      GitHub
+                      {t('portfolio.github')}
                     </button>
                   )}
                 </div>
