@@ -10,7 +10,13 @@ const About = () => {
     'Node.js & Express',
     'Laravel & PHP',
     'MySQL & MongoDB',
-    'REST APIs & Firebase'
+    'REST APIs & Firebase',
+    'Amazon Web Services (AWS)',
+    'Google Cloud Platform (GCP)',
+    'Git & GitHub',
+    'GitHub Copilot & AI Tools',
+    'ChatGPT & Claude for Development',
+    'Cursor IDE'
   ];
 
   return (
