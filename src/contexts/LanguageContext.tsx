@@ -28,6 +28,7 @@ const translations = {
     'hero.description': 'From winning inventor competitions in Angola to leading IT transformations that boost business performance by 60%—I craft digital solutions that don\'t just work, they work brilliantly. Ready to bring your vision to life?',
     'hero.cta.work': 'Explore My Journey',
     'hero.cta.cv': 'Download CV',
+    'hero.qr.text': 'Scan Me',
     
     // About Section
     'about.title': 'About Me',
@@ -163,6 +164,7 @@ const translations = {
     'hero.description': 'Desde ganhar competições de inventores em Angola até liderar transformações de TI que aumentam o desempenho empresarial em 60%—crio soluções digitais que não apenas funcionam, funcionam brilhantemente. Pronto para dar vida à sua visão?',
     'hero.cta.work': 'Explorar a Minha Jornada',
     'hero.cta.cv': 'Descarregar CV',
+    'hero.qr.text': 'Digitalize-me',
     
     // About Section
     'about.title': 'Sobre Mim',
