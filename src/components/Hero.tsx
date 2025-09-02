@@ -61,22 +61,6 @@ const Hero = ({ setCurrentPage }: HeroProps) => {
             {t('hero.title')}
           </h1>
           
-          <div className="mb-10 flex justify-center">
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-r from-neon-blue to-electric-600 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-300"></div>
-              <div className="relative bg-slate-900 p-6 rounded-2xl border border-slate-700 hover:border-neon-blue transition-all duration-300">
-                <img 
-                  src="/qr-code.png" 
-                  alt="QR Code" 
-                  className="w-48 h-48 mx-auto rounded-lg"
-                />
-                <p className="text-slate-400 text-center mt-4 text-sm font-medium">
-                  {t('hero.qr.text')}
-                </p>
-              </div>
-            </div>
-          </div>
-          
           <p className="text-2xl md:text-3xl text-slate-300 mb-10 max-w-4xl mx-auto">
             {t('hero.subtitle')}
           </p>
@@ -101,6 +85,22 @@ const Hero = ({ setCurrentPage }: HeroProps) => {
             >
               {t('hero.cta.cv')}
             </a>
+          </div>
+          
+          <div className="mt-16 flex justify-center">
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-r from-neon-blue to-electric-600 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-300"></div>
+              <div className="relative bg-slate-900 p-6 rounded-2xl border border-slate-700 hover:border-neon-blue transition-all duration-300">
+                <img 
+                  src="/qr-code.png" 
+                  alt="QR Code" 
+                  className="w-48 h-48 mx-auto rounded-lg"
+                />
+                <p className="text-slate-400 text-center mt-4 text-sm font-medium">
+                  {t('hero.qr.text')}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
